@@ -12,13 +12,14 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 
-import { Menu } from 'lucide-react';
+import { LogIn, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const session = null;
 
   const navItens: Array<{ href: string; label: string }> = [{ href: '#profissionais', label: 'Profissionais' }];
 
@@ -31,15 +32,28 @@ export function Header() {
           onClick={() => setIsOpen(false)}
           className='bg-transparent hover:bg-transparent text-black shadow-none'
         >
-          <Link href={item.href}>{item.label}</Link>
+          <Link className='text-base' href={item.href}>
+            {item.label}
+          </Link>
         </Button>
       ))}
+
+      {session ? (
+        <Link className='flex items-center justify-center gap-2' href='/dashboard'>
+          Painel da Clinica
+        </Link>
+      ) : (
+        <Button>
+          <LogIn />
+          Fazer Login
+        </Button>
+      )}
     </>
   );
 
   return (
     <header className='fixed top-0 right-0 left-0 z-999 py-4 px-6 bg-white shadow-md'>
-      <div className=' container mx-auto flex items-center justify-between'>
+      <div className='container mx-auto flex items-center justify-between'>
         <Link className='text-3xl font-bold text-zinc-900' href='/'>
           Odonto<span className='text-emerald-500'>PRO</span>
         </Link>
