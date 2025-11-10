@@ -43,7 +43,7 @@ export function Header() {
           Painel da Clinica
         </Link>
       ) : (
-        <Button>
+        <Button className='mx-4'>
           <LogIn />
           Fazer Login
         </Button>
