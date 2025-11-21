@@ -1,11 +1,16 @@
 import { Header } from './_components/header';
+import { Hero } from './_components/hero';
+import { Profissional } from './_components/professionals';
 
 
 export default function Home() {
   return (
-    <div>
+    <div className=' flex flex-col min-h-screen'>
       <Header />
-      <h1>home</h1>
+      <div>
+        <Hero />
+        <Profissional />
+      </div>
     </div>
   );
 }
